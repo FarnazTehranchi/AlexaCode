@@ -9,10 +9,10 @@ app = Flask(__name__)
 ask = Ask(app, "/")
 logging.getLogger('flask_ask').setLevel(logging.DEBUG)
 
-a = 0
-b = 0
-c = 0 
-d = 0 
+global a = 0
+global b = 0
+global c = 0 
+global d = 0 
 
 
 @ask.launch
@@ -43,6 +43,12 @@ def print_variable(Variable):
 @ask.intent('SaveAndCloseIntent', convert={'FileName':str})
 def save_and_close(FileName):
 	speech_text("save the program in the file") 
+	return question(speech_text).reprompt(speech_text).simple_card('MyCode', speech_text)
+
+@ask.intent('LoopIntent', convert={'LoopStart':int,'LoopEnd':int})
+def loop_start_end(LoopStart,LoopEnd):
+	speech_text= 'Loop starts from ' + str(LoopStart) + ' to ' +  str(LoopEnd) 
+	//loop
 	return question(speech_text).reprompt(speech_text).simple_card('MyCode', speech_text)
 
 @ask.intent('AMAZON.HelpIntent')
