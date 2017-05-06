@@ -23,7 +23,21 @@
 		"type":"Variables"	
 	}
 	]
-    }, 
+    },
+	  {
+      "intent": "LoopIntent", 
+      "slots":
+        [
+	{
+		"name":"Value",
+		"type":"AMAZON.NUMBER"	
+	},
+	{
+		"name":"Value",
+		"type":"AMAZON.NUMBER"	
+	}
+	]
+    },
     {
       "intent": "AMAZON.HelpIntent"
     }
